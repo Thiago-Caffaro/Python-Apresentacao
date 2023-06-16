@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Trabalho</title>
+</head>
+<body>
+    <h1>Py-Script</h1>
+    
+    <textarea id="codeInput" rows="10" cols="50">print("olá Mundo")</textarea><br>
+    <button id="runButton" onclick="sendCode()">Run Code</button>
+    <button><a href="./expanding-card-grid-with-flexbox/dist/index.html">Exemplos</a></button>
+
+    <h2>Output:</h2>
+    
+    
+
+</body>
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<py-script>
+    def runCode(code):
+        exec(code)
+</py-script>
+<script>
+    function sendCode() {
+        document.querySelector(".py-terminal").value = "";
+        const runCode = pyscript.interpreter.globals.get('runCode')
+        var code = document.getElementById("codeInput").value;
+        runCode(code)
+    }
+</script>
+</html>
